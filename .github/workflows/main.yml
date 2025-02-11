@@ -1,0 +1,17 @@
+name: Mi flujo de trabajo
+
+on:
+push:
+    branches: [ main ]
+
+jobs:
+build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Usa Node.js
+        uses: actions/setup-node@v3
+        with:
+        node-version: '16'
+    - run: npm install # Si usas dependencias
+    - run: npm test # Si tienes tests definidos
